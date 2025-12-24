@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@layer base {
+    body {
+        background-color: #070D1F; /* base navy */
+        color: #E5E7EB;
+    }
+}
+
+@layer components {
+
+    .bg-hero {
+        background: linear-gradient(180deg, #0A1B4D 0%, #070D1F 100%);
+    }
+
+    .card-dark {
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.12);
+        border-radius: 1.25rem;
+    }
+
+    .btn-primary {
+        background-color: #1E40FF;
+        color: #fff;
+        border-radius: 9999px;
+        padding: .75rem 1.5rem;
+        font-weight: 700;
+    }
+
+        .btn-primary:hover {
+            background-color: #2B52FF;
+        }
+
+    .btn-outline {
+        border: 1px solid rgba(255,255,255,.25);
+        color: #fff;
+        border-radius: 9999px;
+        padding: .75rem 1.5rem;
+        font-weight: 700;
+    }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,.08);
+        }
+    .btn-primary {
+        @apply inline-flex items-center justify-center rounded-full bg-[rgb(var(--yjm-blue))] px-6 py-3 text-sm font-bold text-white hover:bg-[rgb(var(--yjm-accent))] transition;
+    }
+
+    .card-dark {
+        @apply rounded-2xl bg-[#0E1533] border border-white/10;
+    }
+
+    .icon-circle {
+        @apply flex items-center justify-center h-16 w-16 rounded-full bg-[rgb(var(--yjm-blue))] ring-4 ring-black/40 text-white;
+    }
+
+    .nav-link {
+        @apply text-sm font-semibold text-slate-200 hover:text-white transition;
+    }
+
+    .container-yjm {
+        @apply max-w-6xl mx-auto px-4;
+    }
+
+    .nav-link {
+        @apply text-sm font-semibold text-slate-700 hover:text-blue-900 transition;
+    }
+
+    .btn-primary {
+        @apply inline-flex items-center justify-center rounded-xl bg-blue-950 text-white px-5 py-3 text-sm font-extrabold tracking-tight hover:bg-blue-900 transition;
+    }
+
+    .btn-ghost {
+        @apply inline-flex items-center justify-center rounded-xl bg-white border border-slate-200 px-5 py-3 text-sm font-extrabold tracking-tight hover:border-blue-200 hover:text-blue-950 transition;
+    }
+
+    .card {
+        @apply bg-white border border-slate-200 rounded-3xl shadow-sm;
+    }
+
+    .badge {
+        @apply inline-flex items-center rounded-full bg-blue-950/10 text-blue-950 px-3 py-1 text-xs font-bold;
+    }
+
+    .section-title {
+        @apply text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900;
+    }
+
+    .section-desc {
+        @apply mt-2 text-slate-600 max-w-3xl leading-relaxed;
+    }
+}
