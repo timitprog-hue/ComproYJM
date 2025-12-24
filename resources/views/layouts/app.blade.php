@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>@yield('title', 'PT Yoewono Jaya Mandiri')</title>
+  <link rel="icon" type="image/png" href="{{ asset('logoo.png') }}">
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -70,8 +71,8 @@
         <div class="font-extrabold text-slate-900 mb-3">Menu</div>
         <div class="grid gap-2 text-sm text-slate-600">
           <a class="hover:text-blue-950" href="{{ route('about') }}">About</a>
-          <a class="hover:text-blue-950" href="{{ route('services') }}">News</a>
-          <a class="hover:text-blue-950" href="{{ route('projects') }}">Services</a>
+          <a class="hover:text-blue-950" href="{{ route('services') }}">Services</a>
+          <a class="hover:text-blue-950" href="{{ route('projects') }}">Product</a>
           <a class="hover:text-blue-950" href="{{ route('contact') }}">Contact</a>
         </div>
       </div>
