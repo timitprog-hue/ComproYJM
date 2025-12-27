@@ -89,4 +89,14 @@
     .section-desc {
         @apply mt-2 text-slate-600 max-w-3xl leading-relaxed;
     }
+
+    .yjmImageSwiper .swiper-slide {
+        opacity: 0;
+        transition: opacity 700ms ease;
+    }
+
+    .yjmImageSwiper .swiper-slide-active {
+        opacity: 1;
+    }
+
 }

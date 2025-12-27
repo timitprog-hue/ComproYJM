@@ -6,6 +6,7 @@
   <title>@yield('title', 'PT Yoewono Jaya Mandiri')</title>
   <link rel="icon" type="image/png" href="{{ asset('logoo.png') }}">
   @vite(['resources/css/app.css', 'resources/js/app.js'])
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 
 <body class="bg-[#0A0F1F] text-slate-100">
@@ -95,5 +96,8 @@
       © {{ date('Y') }} PT Yoewono Jaya Mandiri. All rights reserved.
     </div>
   </footer>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  @stack('scripts')
+
 </body>
 </html>

@@ -52,39 +52,102 @@
       </div>
     </div>
 
-    {{-- right card (dark) --}}
+    {{-- right card (slider) --}}
     <div class="rounded-[28px] bg-white/95 backdrop-blur border border-white/20 shadow-xl overflow-hidden">
       <div class="p-7">
         <div class="text-xs font-extrabold tracking-[0.2em] uppercase text-[#08136E]">
-          Technology & Quality Oriented
+          Featured Machines
         </div>
 
-        <p class="mt-3 text-sm text-slate-700 leading-relaxed">
-          Kami menyediakan solusi yang memenuhi kebutuhan keandalan dan fleksibilitas.
-          Berdasarkan tuntutan pasar dan kebutuhan pelanggan, kami terus meningkatkan kreativitas desain,
-          kualitas produk, dan reputasi merek untuk menjadi penyedia solusi pengemasan.
-        </p>
+        @php
+          // Auto ambil beberapa gambar dari public/products (aman untuk spasi & huruf besar/kecil)
+          $imgs = collect(array_merge(
+              glob(public_path('products/*.png')),
+              glob(public_path('products/*.PNG')),
+              glob(public_path('products/*.jpg')),
+              glob(public_path('products/*.JPG')),
+              glob(public_path('products/*.jpeg')),
+              glob(public_path('products/*.JPEG')),
+              glob(public_path('products/*.webp')),
+              glob(public_path('products/*.WEBP')),
+          ))
+          ->take(8) // ambil beberapa aja
+          ->map(fn($p) => 'products/' . basename($p));
+        @endphp
 
-        <div class="mt-6 grid gap-3">
-          @foreach ([
-            ['t'=>'Kemitraan Berkelanjutan','d'=>'Komitmen jangka panjang bersama pelanggan.'],
-            ['t'=>'Standar Kualitas','d'=>'Fokus pada kepuasan dan hasil terbaik.'],
-            ['t'=>'Inovasi Berkelanjutan','d'=>'Pengembangan teknologi mengikuti kebutuhan pasar.'],
-          ] as $x)
-            <div class="rounded-2xl border border-slate-200/70 bg-white p-4">
-              <div class="font-extrabold text-slate-900">{{ $x['t'] }}</div>
-              <div class="text-sm text-slate-600 mt-1">{{ $x['d'] }}</div>
+        <div class="mt-5 rounded-2xl overflow-hidden border border-slate-200/70 bg-white">
+          <div class="swiper yjmFadeSwiper h-[240px] sm:h-[280px]">
+            <div class="swiper-wrapper">
+              @forelse($imgs as $img)
+                <div class="swiper-slide">
+                  <a href="{{ asset($img) }}" target="_blank" class="block h-full w-full">
+                    <img
+                      src="{{ asset($img) }}"
+                      alt="Featured Machine"
+                      class="h-full w-full object-contain p-4"
+                      loading="lazy"
+                    >
+                  </a>
+                </div>
+              @empty
+                <div class="h-[240px] sm:h-[280px] flex items-center justify-center text-slate-400 text-sm">
+                  No images found in <b class="mx-1">public/products</b>
+                </div>
+              @endforelse
             </div>
-          @endforeach
+
+            {{-- dots --}}
+            <div class="swiper-pagination !bottom-2"></div>
+
+            {{-- arrows --}}
+            <button type="button"
+              class="yjmPrev absolute left-3 top-1/2 -translate-y-1/2 z-10
+                     h-10 w-10 rounded-full bg-white/90 border border-slate-200
+                     shadow hover:bg-white transition grid place-items-center">
+              ‹
+            </button>
+            <button type="button"
+              class="yjmNext absolute right-3 top-1/2 -translate-y-1/2 z-10
+                     h-10 w-10 rounded-full bg-white/90 border border-slate-200
+                     shadow hover:bg-white transition grid place-items-center">
+              ›
+            </button>
+          </div>
         </div>
 
-        <div class="mt-6">
-          <a href="{{ route('about') }}" class="text-sm font-extrabold text-[#08136E] hover:text-[#1E40FF]">
-            Pelajari profil perusahaan →
+        <div class="mt-5">
+          <a href="{{ route('projects') }}"
+             class="text-sm font-extrabold text-[#08136E] hover:text-[#1E40FF]">
+            View full product catalog →
           </a>
         </div>
       </div>
     </div>
+
+    {{-- Swiper (fade) init --}}
+    @push('scripts')
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        if (!window.Swiper) {
+          console.warn('Swiper not found. Make sure Swiper is loaded in app.js / app.blade.');
+          return;
+        }
+
+        new Swiper('.yjmFadeSwiper', {
+          loop: true,
+          speed: 800,
+          effect: 'fade',
+          fadeEffect: { crossFade: true },
+          autoplay: { delay: 2800, disableOnInteraction: false },
+          pagination: { el: '.yjmFadeSwiper .swiper-pagination', clickable: true },
+          navigation: {
+            nextEl: '.yjmNext',
+            prevEl: '.yjmPrev',
+          },
+        });
+      });
+    </script>
+    @endpush
   </div>
 </section>
 
