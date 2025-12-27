@@ -409,13 +409,16 @@
               {{-- image --}}
               <div class="bg-[#0B122A] p-4">
                 <div class="aspect-[4/3] rounded-2xl bg-black/10 border border-white/10 flex items-center justify-center overflow-hidden">
-                  <img
-                    src="{{ asset($p['image']) }}"
-                    alt="{{ $p['title'] }}"
-                    class="w-full h-full object-contain p-4 group-hover:scale-[1.02] transition"
-                    loading="lazy"
-                    onerror="this.onerror=null; this.src='{{ asset('products/placeholder.jpg') }}';"
-                  >
+                    @php
+                      $imgPath = implode('/', array_map('rawurlencode', explode('/', $p['image'])));
+                    @endphp
+
+                    <img
+                      src="{{ asset($imgPath) }}"
+                      alt="{{ $p['title'] }}"
+                      class="w-full h-full object-contain"
+                      loading="lazy"
+                    />
                 </div>
               </div>
 
