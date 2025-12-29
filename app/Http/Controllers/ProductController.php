@@ -30,10 +30,10 @@ class ProductController extends Controller
               ],
               // 2 gambar kanan (sesuai PDF)
               'layout' => 'text-2img-right',
-              'images' => [
-                '/public/products/11.PNG',
-                '/public/products/12.PNG',
-              ],
+            'images' => [
+              'products/11.PNG',
+              'products/12.PNG',
+            ],
             ],
 
             [
