@@ -2,371 +2,51 @@
 @section('title','Product — PT YJM')
 
 @section('content')
-
 <section class="relative overflow-hidden">
-  {{-- background --}}
+  {{-- background navy (tema kamu) --}}
   <div class="absolute inset-0 bg-[#070D1F]"></div>
-
-  {{-- glow --}}
   <div class="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-[rgba(30,64,255,.18)] blur-3xl"></div>
   <div class="absolute top-40 -left-24 h-96 w-96 rounded-full bg-[rgba(30,64,255,.10)] blur-3xl"></div>
 
-  <div class="container-yjm relative py-14 lg:py-16">
+  <div class="container-yjm relative py-12 lg:py-14">
 
-    {{-- page header --}}
+    {{-- header page --}}
     <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
       <div class="max-w-2xl">
-
-        <h1 class="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+        <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
           Products & Packaging Solutions
         </h1>
-
         <p class="mt-3 text-white/75 leading-relaxed">
-          Explore our packaging machine solutions by category. Select a category to filter the list.
-          You can replace all images and titles with your own catalog items.
+          Browse our catalog like a brochure page. Choose category to filter.
         </p>
       </div>
 
-      {{-- small info --}}
       <div class="rounded-2xl bg-white/5 border border-white/10 px-5 py-4 text-sm text-white/75">
         <div class="font-extrabold text-white">Need a quotation?</div>
         <div class="mt-1">Send requirements & get recommendations.</div>
       </div>
     </div>
 
-    @php
-      $active = request('cat', 'all');
-
-      $categories = [
-        'all'    => 'All Products',
-        'a'      => 'Water Treatment',
-        'b'      => 'Water Filling Machine',
-        'c'      => 'Juice Filling Machine',
-        'd'      => 'Soft Drinks Filling Machine',
-        'e'      => 'Can Filling Machine',
-        'f'      => '5L/10L/5 Gallon Filling Machine',
-        'g'      => 'Glass Bottle Filling Machine',
-        'h'      => 'Edible Oil Filling Machine',
-        'i'      => 'Blowing Moulding Machine',
-        'j'      => 'Combiblock',
-        'k'      => 'Pretreatment',
-        'l'      => 'Labelling Machine',
-        'm'      => 'Packaging Machine',
-        'n'      => 'Palletizer',
-      ];
-
-      if (!array_key_exists($active, $categories)) $active = 'all';
-
-      $products = [
-
-        [
-          'title'    => '250–300CPM Automatic Liquid Filling (Canned Water / Energy Drinks)',
-          'category' => 'pretreatment',
-          'image'    => 'products/250-300CPM Automatic Liquid Filling Drinks Canned Water Energy Drinks Can Filling Machine.png',
-          'tag'      => 'Pre-treatment',
-        ],
-
-// Water Filling Machine
-        [
-          'title'    => '2000L/H Mineral Water Factory Plant Water Treatment Complete Reverse Osmosis System',
-          'category' => 'a',
-          'image'    => 'products/2000L H Mineral Water Factory Plant Water Treatment Complete Reverse Osmosis System.png',
-          'tag'      => 'Water Treatment',
-        ],
-        [
-          'title'    => '5000l/H Reverse Osmosis Water Filter Ro Industrial Water Treatment Pure Water Machine',
-          'category' => 'a',
-          'image'    => 'products/5000l H Reverse Osmosis Water Filter Ro Industrial Water Treatment Pure Water Machine.png',
-          'tag'      => 'Water Treatment',
-        ],
-        [
-          'title'    => '10000L/H Industrial Reverse Osmosis Water Filter System',
-          'category' => 'a',
-          'image'    => 'products/10000L H Industrial Reverse Osmosis Water Filter System.png',
-          'tag'      => 'Water Treatment',
-        ],
-        [
-          'title'    => '15000L/H Commercial Drinkable Water Water Filter System Reverse Osmosis System Water Treatment Plant',
-          'category' => 'a',
-          'image'    => 'products/15000L H Commercial Drinkable Water Water Filter System Reverse Osmosis System Water Treatment Plant.png',
-          'tag'      => 'Water Treatment',
-        ],
-        [
-          'title'    => '2000L/H Hollow Fiber Machine Ultrafiltration Water Purifiers',
-          'category' => 'a',
-          'image'    => 'products/2000L H Hollow Fiber Machine Ultrafiltration Water Purifiers.png',
-          'tag'      => 'Water Treatment',
-        ],
-        [
-          'title'    => '5000L/H Water Treatment Ultrafiltration Fiter Plant Equipment Ultrafiltration (uf) System',
-          'category' => 'a',
-          'image'    => 'products/5000L H Water Treatment Ultrafiltration Fiter Plant Equipment Ultrafiltration (uf) System.png',
-          'tag'      => 'Water Treatment',
-        ],
-        [
-          'title'    => 'Water Treatment',
-          'category' => 'a',
-          'image'    => 'products/Water treatment.png',
-          'tag'      => 'Water Treatment',
-        ],
-
-// Water Filling Machine
-        [
-          'title'    => '15000BPH Automatic Mineral Pure Water Filling Machinery Water Bottle Filling Machine',
-          'category' => 'b',
-          'image'    => 'products/15000BPH Automatic Mineral Pure Water Filling Machinery Water Bottle Filling Machine.png',
-          'tag'      => 'Water Filling Machine',
-        ],
-        [
-          'title'    => '12000BPH Pure Mineral Water Automatic Water Bottle Filling and Capping Machine',
-          'category' => 'b',
-          'image'    => 'products/12000BPH Pure Mineral Water Automatic Water Bottle Filling and Capping Machine.png',
-          'tag'      => 'Water Filling Machine',
-        ],
-        [
-          'title'    => '8000 BPH Pure Mineral Packaging Bottle Filling Machine Automatic',
-          'category' => 'b',
-          'image'    => 'products/8000 BPH Pure Mineral Packaging Bottle Filling Machine Automatic.png',
-          'tag'      => 'Water Filling Machine',
-        ],
-        [
-          'title'    => '6000BPH Pure Mineral Automatic Packaging Water Bottle Filling Capping and Labeling Machine',
-          'category' => 'b',
-          'image'    => 'products/6000BPH Pure Mineral Automatic Packaging Water Bottle Filling Capping and Labeling Machine.png',
-          'tag'      => 'Water Filling Machine',
-        ],
-        [
-          'title'    => '4000BPH Pure Mineral Pet Automatic Plastic Bottle Filling Machine',
-          'category' => 'b',
-          'image'    => 'products/4000BPH Pure Mineral Pet Automatic Plastic Bottle Filling Machine.png',
-          'tag'      => 'Water Filling Machine',
-        ],
-        [
-          'title'    => '2000-3000 BPH Liquid Pure Mineral Pet Bottle Water Rinsing Filling Capping Machine',
-          'category' => 'b',
-          'image'    => 'products/2000-3000 BPH Liquid Pure Mineral Pet Bottle Water Rinsing Filling Capping Machine.png',
-          'tag'      => 'Water Filling Machine',
-        ],
-        [
-          'title'    => 'Water Filling Machine',
-          'category' => 'b',
-          'image'    => 'products/Water Filling Machine.png',
-          'tag'      => 'Water Filling Machine',
-        ],
-
-// Juice Filling Machine
-        [
-          'title'    => '2000BPH Automatic Bottled Juice Small Juice Filling Capping Bottle Closing Machine',
-          'category' => 'c',
-          'image'    => 'products/2000BPH Automatic Bottled Juice Small Juice Filling Capping Bottle Closing Machine.png',
-          'tag'      => 'Juice Filling Machine',
-        ],
-        [
-          'title'    => '4000BPH Automatic Hot Fill Plastic Bottles Juice Filling and Capping Machine Filling Machines Juice',
-          'category' => 'c',
-          'image'    => 'products/4000BPH Automatic Hot Fill Plastic Bottles Juice Filling and Capping Machine Filling Machines Juice.png',
-          'tag'      => 'Juice Filling Machine',
-        ],
-        [
-          'title'    => '6000BPH Automatic Bottled Fruit Juice Machine Packaging Machine',
-          'category' => 'c',
-          'image'    => 'products/4000BPH Automatic Hot Fill Plastic Bottles Juice Filling and Capping Machine Filling Machines Juice.png',
-          'tag'      => 'Juice Filling Machine',
-        ],
-        [
-          'title'    => '8000BPH Automatic Juice Hot Fill mango Juice Packaging Machine Fruit Juice Filling Machine',
-          'category' => 'c',
-          'image'    => 'products/8000BPH Automatic Juice Hot Fill mango Juice Packaging Machine Fruit Juice Filling Machine.png',
-          'tag'      => 'Juice Filling Machine',
-        ],
-        [
-          'title'    => '12000BPH Automatic Full Bottled Juice Making Machine Sealing Machine Production Line Juice Production Machine',
-          'category' => 'c',
-          'image'    => 'products/12000BPH Automatic Full Bottled Juice Making Machine Sealing Machine Production Line Juice Production Machine.png',
-          'tag'      => 'Juice Filling Machine',
-        ],
-        [
-          'title'    => '15000BPH Automatic Fresh Fruit Juice Filling Sealing Line Machines Bottle Juice Filling Juice Machine',
-          'category' => 'c',
-          'image'    => 'products/15000BPH Automatic Fresh Fruit Juice Filling Sealing Line Machines Bottle Juice Filling Juice Machine.png',
-          'tag'      => 'Juice Filling Machine',
-        ],
-        [
-          'title'    => '20000BPH Automatic Bottled Juice Filling Machine Production Juice Filling and Sealing Machine',
-          'category' => 'c',
-          'image'    => 'products/20000BPH Automatic Bottled Juice Filling Machine Production Juice Filling and Sealing Machine.png',
-          'tag'      => 'Juice Filling Machine',
-        ],
-        [
-          'title'    => '24000 BPH Automatic Fresh Juice Filling Bottle Closing Machine Juice Filling Machine',
-          'category' => 'c',
-          'image'    => 'products/4000BPH Automatic Hot Fill Plastic Bottles Juice Filling and Capping Machine Filling Machines Juice.png',
-          'tag'      => 'Juice Filling Machine',
-        ],
-        [
-          'title'    => 'Juice Filling Machine',
-          'category' => 'c',
-          'image'    => 'products/Juice Filling Machine.png',
-          'tag'      => 'Juice Filling Machine',
-        ],
-
-// Soft Drinks Filling Machine
-        [
-          'title'    => '20000BPH Automatic Sparking Soft Drink Water Making Bottled Filling Sealing Soda Machine',
-          'category' => 'd',
-          'image'    => 'products/20000BPH Automatic Sparking Soft Drink Water Making Bottled Filling Sealing Soda Machine.png',
-          'tag'      => 'Soft Drinks Filling Machine',
-        ],
-        [
-          'title'    => '16000BPH Automatic Carbonated Soft Drink Soda Bottling Making Bottled Filling Sealing Soda Making Machine',
-          'category' => 'd',
-          'image'    => 'products/16000BPH Automatic Carbonated Soft Drink Soda Bottling Making Bottled Filling Sealing Soda Making Machine.png',
-          'tag'      => 'Soft Drinks Filling Machine',
-        ],
-        [
-          'title'    => '12000 BPH Automatic Carbonated Juice Soft Drink Filling Machine All in One Soda Machine Carbonated',
-          'category' => 'd',
-          'image'    => 'products/12000 BPH Automatic Carbonated Juice Soft Drink Filling Machine All in One Soda Machine Carbonated.png',
-          'tag'      => 'Soft Drinks Filling Machine',
-        ],
-        [
-          'title'    => '8000 BPH Automatic Carbonated Sparkling Soda Carbonator Machine Juice Soft Drink Soda Filling Machine',
-          'category' => 'd',
-          'image'    => 'products/12000 BPH Automatic Carbonated Juice Soft Drink Filling Machine All in One Soda Machine Carbonated.png',
-          'tag'      => 'Soft Drinks Filling Machine',
-        ],
-        [
-          'title'    => '6000 BPH Automatic Sparkling Carbonated Carbonator Soda Water Machine Drinks Machine Juice Soft Drink Carbonation Soda Machine',
-          'category' => 'd',
-          'image'    => 'products/6000 BPH Automatic Sparkling Carbonated Carbonator Soda Water Machine Drinks Machine Juice Soft Drink Carbonation Soda Machine.png',
-          'tag'      => 'Soft Drinks Filling Machine',
-        ],
-        [
-          'title'    => '4000 BPH Automatic Sparkling Beverage Carbonated Juice Soft Drink Carbonation Soda Carbonation Machine',
-          'category' => 'd',
-          'image'    => 'products/4000 BPH Automatic Sparkling Beverage Carbonated Juice Soft Drink Carbonation Soda Carbonation Machine.png',
-          'tag'      => 'Soft Drinks Filling Machine',
-        ],
-        [
-          'title'    => '2000BPH Automatic Carbon Dioxide Sparkling Soda Filling Machine Pet',
-          'category' => 'd',
-          'image'    => 'products/4000 BPH Automatic Sparkling Beverage Carbonated Juice Soft Drink Carbonation Soda Carbonation Machine.png',
-          'tag'      => 'Soft Drinks Filling Machine',
-        ],
-        [
-          'title'    => '1000BPH Automatic Carbon Dioxide Soda Bottled Filling Machine Pet',
-          'category' => 'd',
-          'image'    => 'products/4000 BPH Automatic Sparkling Beverage Carbonated Juice Soft Drink Carbonation Soda Carbonation Machine.png',
-          'tag'      => 'Soft Drinks Filling Machine',
-        ],
-        [
-          'title'    => 'Soft drink Filling Machine',
-          'category' => 'd',
-          'image'    => 'products/aaa.png',
-          'tag'      => 'Soft Drinks Filling Machine',
-        ],
-
-// Can Filling Machine
-
-        [
-          'title'    => '60-80CPM Automatic Carbonated Beverage Fill Sealing Soda Beer Can Filling Machine',
-          'category' => 'e',
-          'image'    => 'products/60-80CPM Automatic Carbonated Beverage Fill Sealing Soda Beer Can Filling Machine.png',
-          'tag'      => 'Can Filling Machine',
-        ],
-        [
-          'title'    => '',
-          'category' => 'e',
-          'image'    => 'products/a.png',
-          'tag'      => 'Can Filling Machine',
-        ],
-        [
-          'title'    => '',
-          'category' => 'e',
-          'image'    => 'products/a.png',
-          'tag'      => 'Can Filling Machine',
-        ],
-        [
-          'title'    => '',
-          'category' => 'e',
-          'image'    => 'products/a.png',
-          'tag'      => 'Can Filling Machine',
-        ],
-        [
-          'title'    => '',
-          'category' => 'e',
-          'image'    => 'products/a.png',
-          'tag'      => 'Can Filling Machine',
-        ],
-        [
-          'title'    => '',
-          'category' => 'e',
-          'image'    => 'products/a.png',
-          'tag'      => 'Can Filling Machine',
-        ],
-        [
-          'title'    => '',
-          'category' => 'e',
-          'image'    => 'products/a.png',
-          'tag'      => 'Can Filling Machine',
-        ],
-
-// 5L/10L/5 Gallon Filling Machine
-
-// Glass Bottle Filling Machine
-
-// Edible Oil Filling Machine
-
-// Blowing Moulding Machine
-
-// Combiblock
-
-// Pretreatment
-
-// Labelling Machine
-        [
-          'title'    => '10000BPH Flat Square Bottle Labelling Machine',
-          'category' => 'l',
-          'image'    => 'products/10000BPH Flat square Bottle Labelling Machine.png',
-          'tag'      => 'Labelling Machine',
-        ],
-
-// Packaging Filling Machine
-
-// Palletizer
-
-      ];
-
-      $filtered = $active === 'all'
-        ? $products
-        : array_values(array_filter($products, fn($p) => $p['category'] === $active));
-    @endphp
-
-    {{-- content layout --}}
     <div class="mt-10 grid lg:grid-cols-[320px_1fr] gap-8 lg:gap-10">
 
-      {{-- LEFT: category --}}
-      <aside class="rounded-3xl bg-white/5 border border-white/10 overflow-hidden">
+      {{-- LEFT: categories (tetap ada) --}}
+      <aside class="rounded-3xl bg-white/5 border border-white/10 overflow-hidden h-fit sticky top-6">
         <div class="px-6 py-5 border-b border-white/10">
           <div class="text-white font-extrabold">Categories</div>
-          <div class="text-xs text-white/60 mt-1">Filter products by type</div>
+          <div class="text-xs text-white/60 mt-1">Filter by type</div>
         </div>
 
-        <div class="p-3">
-          @foreach($categories as $key => $label)
+        <div class="p-3 space-y-2">
+          @foreach(($categories ?? []) as $key => $label)
             <a
               href="{{ route('projects') }}?cat={{ $key }}"
-              class="flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold
-                     transition border
-                     {{ $active === $key
+              class="flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold transition border
+                     {{ ($active ?? '') === $key
                         ? 'bg-white/10 text-white border-white/15'
                         : 'bg-transparent text-white/80 border-transparent hover:bg-white/5 hover:border-white/10' }}"
             >
               <span>{{ $label }}</span>
-
-              <span class="inline-flex items-center gap-2">
-                <span class="h-2 w-2 rounded-full {{ $active === $key ? 'bg-[#1E40FF]' : 'bg-white/20' }}"></span>
-              </span>
+              <span class="h-2 w-2 rounded-full {{ ($active ?? '') === $key ? 'bg-[#1E40FF]' : 'bg-white/20' }}"></span>
             </a>
           @endforeach
         </div>
@@ -378,77 +58,96 @@
             Contact Sales
           </a>
           <div class="mt-3 text-xs text-white/55 text-center">
-            Or WhatsApp: <a class="underline hover:text-white" target="_blank" href="https://wa.me/6285708095529">0857 0809 5529</a>
+            WhatsApp:
+            <a class="underline hover:text-white" target="_blank" href="https://wa.me/6285708095529">0857 0809 5529</a>
           </div>
         </div>
       </aside>
 
-      {{-- RIGHT: product grid --}}
+      {{-- RIGHT: “brochure paper” --}}
       <div>
-        {{-- header strip --}}
-        <div class="flex items-center justify-between gap-4">
-          <div>
-            <div class="text-xs font-extrabold tracking-[0.25em] uppercase text-white/70">Product List</div>
-            <div class="mt-2 text-xl font-extrabold text-white">
-              {{ $categories[$active] ?? 'Products' }}
+        @php
+          $active = $active ?? 'beverage';
+          $isAll = $active === 'all';
+          $filtered = collect($items ?? [])->filter(fn($it) => $isAll || ($it['cat'] ?? '') === $active)->values();
+        @endphp
+
+        {{-- paper card --}}
+        <div class="rounded-[28px] bg-white shadow-sm border border-slate-200 overflow-hidden">
+
+          {{-- top brochure header bar (like PDF) --}}
+          <div class="px-8 pt-7">
+            <div class="flex items-center justify-between gap-6">
+              <div class="text-xs font-bold tracking-[0.22em] uppercase text-slate-500">
+                {{ $categories[$active] ?? 'Product Catalog' }}
+              </div>
+
+              <div class="flex items-center gap-2 text-slate-500 text-xs font-semibold">
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-slate-300"></span>
+                PT Yoewono Jaya Mandiri
+              </div>
+            </div>
+
+            {{-- grey line + red accent --}}
+            <div class="mt-4 h-[3px] bg-slate-200 relative overflow-hidden rounded-full">
+              <div class="absolute left-0 top-0 h-full w-48 bg-red-600"></div>
             </div>
           </div>
 
-          <div class="hidden sm:flex items-center gap-2 rounded-full bg-white/5 border border-white/10 px-4 py-2 text-xs text-white/70">
-            <span class="font-bold text-white">{{ count($filtered) }}</span> items shown
-          </div>
-        </div>
+          {{-- brochure body: list items --}}
+          <div class="px-8 pb-10 pt-8 space-y-12">
 
-        <div class="mt-6 h-px bg-white/10"></div>
-
-        <div class="mt-8 grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
-          @forelse($filtered as $p)
-            <a href="{{ route('contact') }}"
-               class="group block rounded-3xl bg-white/5 border border-white/10 overflow-hidden
-                      hover:bg-white/10 hover:border-white/15 transition">
-              {{-- image --}}
-              <div class="bg-[#0B122A] p-4">
-                <div class="aspect-[4/3] rounded-2xl bg-black/10 border border-white/10 flex items-center justify-center overflow-hidden">
-                    @php
-                      $imgPath = implode('/', array_map('rawurlencode', explode('/', $p['image'])));
-                    @endphp
-
+            @forelse($filtered as $it)
+              <article class="grid lg:grid-cols-[520px_1fr] gap-8 items-start">
+                {{-- left hero image --}}
+                <div class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50">
+                  <div class="aspect-[4/3]">
                     <img
-                      src="{{ asset($imgPath) }}"
-                      alt="{{ $p['title'] }}"
+                      src="{{ asset($it['hero'] ?? '') }}"
                       class="w-full h-full object-contain"
                       loading="lazy"
-                    />
+                      onerror="this.style.display='none'"
+                    >
+                  </div>
                 </div>
+
+                {{-- right: title + desc + thumbs --}}
+                <div>
+                  <h2 class="text-2xl font-extrabold text-red-600">
+                    {{ $it['title'] ?? '-' }}
+                  </h2>
+                  @if(!empty($it['subtitle']))
+                    <div class="mt-1 text-slate-600 font-semibold">
+                      {{ $it['subtitle'] }}
+                    </div>
+                  @endif
+
+                  <div class="mt-4">
+                    <div class="text-sm font-extrabold text-slate-900">Product Features</div>
+                    <div class="mt-2 space-y-3 text-sm text-slate-700 leading-relaxed">
+                      @foreach(($it['desc'] ?? []) as $p)
+                        <p>{{ $p }}</p>
+                      @endforeach
+                    </div>
+                  </div>
+
+
+                </div>
+              </article>
+
+              {{-- divider --}}
+              <div class="h-px bg-slate-200/70"></div>
+
+            @empty
+              <div class="py-10 text-center text-slate-600">
+                No items found in this category.
               </div>
+            @endforelse
 
-              {{-- content --}}
-              <div class="px-5 pb-5">
-                <div class="mt-4 inline-flex items-center rounded-full bg-[#1E40FF]/20 text-white px-3 py-1 text-xs font-bold border border-white/10">
-                  {{ $p['tag'] ?? 'Product' }}
-                </div>
-
-                <div class="mt-3 text-white font-extrabold leading-snug">
-                  {{ $p['title'] }}
-                </div>
-
-                <div class="mt-2 text-sm text-white/70 leading-relaxed">
-                  Click to request details, specification, and quotation.
-                </div>
-
-                <div class="mt-4 inline-flex items-center gap-2 text-sm font-extrabold text-white">
-                  Request Quote <span class="opacity-70 group-hover:translate-x-0.5 transition">→</span>
-                </div>
-              </div>
-            </a>
-          @empty
-            <div class="rounded-3xl bg-white/5 border border-white/10 p-8 text-white/70">
-              No products found in this category.
-            </div>
-          @endforelse
+          </div>
         </div>
 
-        {{-- bottom cta --}}
+        {{-- bottom CTA (tetap tema kamu) --}}
         <div class="mt-10 rounded-[28px] bg-gradient-to-r from-[#0A1B4D] to-[#1E40FF] p-7 md:p-8 border border-white/10">
           <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
@@ -460,6 +159,7 @@
                 Tell us your capacity target and product type. We’ll recommend the most suitable machine configuration.
               </div>
             </div>
+
             <div class="flex flex-wrap gap-3">
               <a href="{{ route('contact') }}"
                  class="inline-flex items-center rounded-full bg-white text-[#08136E] px-6 py-3 text-sm font-extrabold hover:bg-white/90 transition">
@@ -478,5 +178,4 @@
 
   </div>
 </section>
-
 @endsection
