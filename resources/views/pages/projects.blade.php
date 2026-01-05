@@ -29,7 +29,7 @@
             <span>📄</span>
             <span>Download (YJM ZPACK)</span>
           </div>
-          <div class="mt-1">Click to open / downloaad.</div>
+          <div class="mt-1">Click to open / download.</div>
         </a>
     </div>
 
